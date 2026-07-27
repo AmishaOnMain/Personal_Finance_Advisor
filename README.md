@@ -1,208 +1,203 @@
 # 💰 Personal Finance AI Advisor
 
-An AI-powered Personal Finance Advisor for Indian users that combines **Retrieval-Augmented Generation (RAG)**, **live market data**, and **voice interaction** to answer finance-related questions.
+An AI-powered Personal Finance Assistant for Indian users that combines **Retrieval-Augmented Generation (RAG)** with **live financial data** and **voice interaction**.
 
-The application retrieves information from official Indian financial documents, fetches real-time precious metal prices, and provides intelligent responses using Google's Gemini model.
-
----
-
-# 🚀 Features
-
-* 📄 Search official financial documents using RAG
-* 💰 Live Gold and Silver prices (INR)
-* 📚 GST and financial education lookup
-* 🤖 AI-powered responses using Gemini 2.5 Flash
-* 🎙️ Voice input using AssemblyAI Speech-to-Text
-* 🔊 Voice output using Murf AI Text-to-Speech
-* 💬 Interactive Gradio interface
-* ⚡ Fast semantic search with ChromaDB
+Built using **LangChain**, **Google Gemini 2.5 Flash**, **ChromaDB**, **Hugging Face Embeddings**, **Gradio**, **AssemblyAI**, and **Murf AI**.
 
 ---
 
-# 🛠️ Tech Stack
+## 🚀 Features
 
-### Backend
-
-* Python 3.12
-* LangChain
-* ChromaDB
-* HuggingFace Embeddings
-
-### AI
-
-* Google Gemini 2.5 Flash
-* Sentence Transformers
-* AssemblyAI
-* Murf AI
-
-### Frontend
-
-* Gradio
-
-### APIs
-
-* Gold API
-* AssemblyAI API
-* Murf AI API
+- 📄 Search official Indian financial documents using RAG
+- 🏦 Get information from:
+  - SEBI Financial Education Booklet
+  - GST Ready Reckoner
+- 🥇 Fetch live Gold & Silver prices in INR
+- 🤖 AI-powered financial assistant using Gemini 2.5 Flash
+- 🎙️ Voice input using AssemblyAI Speech-to-Text
+- 🔊 Voice responses using Murf AI Text-to-Speech
+- 🌐 Interactive Gradio web interface
+- ⚡ Fast semantic search with ChromaDB
 
 ---
 
-# 📂 Project Structure
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| LLM | Google Gemini 2.5 Flash |
+| Framework | LangChain |
+| Vector Database | ChromaDB |
+| Embeddings | Hugging Face (all-mpnet-base-v2) |
+| Document Loader | PyPDFLoader |
+| Text Splitter | RecursiveCharacterTextSplitter |
+| UI | Gradio |
+| Speech-to-Text | AssemblyAI |
+| Text-to-Speech | Murf AI |
+| Market Data | Gold API |
+
+---
+
+## 📚 Knowledge Base
+
+The assistant uses Retrieval-Augmented Generation (RAG) over official financial documents including:
+
+- SEBI Financial Education Booklet
+- GST Ready Reckoner
+
+Documents are:
+
+1. Loaded using PyPDFLoader
+2. Split into chunks
+3. Converted into embeddings
+4. Stored inside ChromaDB
+5. Retrieved using semantic similarity search
+
+---
+
+## ⚙️ Workflow
 
 ```text
-Personal_Finance_Advisor/
-│
-├── app.py
-├── requirements.txt
-├── README.md
-├── .env
-├── chroma_langchain_db/
-│
-└── venv/
+User Question
+      │
+      ▼
+Gemini Agent
+      │
+      ├────────► Finance Document Search Tool (RAG)
+      │
+      ├────────► Live Gold/Silver Price Tool
+      │
+      ▼
+Generated Response
+      │
+      ├── Text Output
+      └── Voice Output (Optional)
 ```
 
 ---
 
-# 📚 Knowledge Base
+## 📦 Installation
 
-The chatbot indexes the following official documents:
-
-* SEBI Financial Education Booklet
-* CBIC GST Ready Reckoner
-
-These PDFs are converted into embeddings and stored inside ChromaDB for semantic retrieval.
-
----
-
-# ⚙️ Installation
-
-Clone the repository:
+Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Personal_Finance_Advisor.git
+git clone https://github.com/AmishaOnMain/Personal-Finance-AI-Advisor.git
 
-cd Personal_Finance_Advisor
+cd Personal-Finance-AI-Advisor
 ```
 
-Create a virtual environment:
+Install dependencies
 
 ```bash
-python -m venv venv
-```
-
-Activate it.
-
-### Linux / macOS
-
-```bash
-source venv/bin/activate
-```
-
-### Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
+pip install -U \
+langchain \
+langchain-community \
+langchain-text-splitters \
+langchain-huggingface \
+langchain-chroma \
+langchain-google-genai \
+sentence-transformers \
+chromadb \
+gradio \
+assemblyai \
+pypdf
 ```
 
 ---
 
-# 🔑 Environment Variables
+## 🔑 API Keys Required
 
-Create a `.env` file in the project root.
+Create the following API keys:
 
-```env
-GENAI_API_KEY=YOUR_GOOGLE_API_KEY
+- Gemini API Key
+- AssemblyAI API Key
+- Murf AI API Key
 
-ASSEMBLYAI_API_KEY=YOUR_ASSEMBLYAI_API_KEY
+Store them in Google Colab Secrets as:
 
-MURF_API_KEY=YOUR_MURF_API_KEY
+```
+GEMINI_API_KEY
+ASSEMBLYAI_API_KEY
+MURF_API_KEY
 ```
 
 ---
 
-# ▶️ Running the Project
+## ▶️ Running the Project
 
-```bash
-python app.py
+Run the notebook step by step.
+
+The project will:
+
+- Download official finance documents
+- Create the vector database
+- Initialize the Gemini agent
+- Launch the Gradio web application
+- Launch the Voice Assistant interface
+
+---
+
+## 💬 Example Questions
+
+- What is the current gold price?
+- What is the GST rate on laptops?
+- How much GST will I pay on a gold chain?
+- Explain tax-saving investment options.
+- What are the basic financial planning tips according to SEBI?
+
+---
+
+
+
+---
+
+## 🧠 Concepts Used
+
+- Retrieval-Augmented Generation (RAG)
+- Semantic Search
+- Vector Databases
+- Embeddings
+- Tool Calling
+- AI Agents
+- Speech Recognition
+- Text-to-Speech
+- Prompt Engineering
+
+---
+
+## 📸 Preview
+
+> Add a screenshot of your Gradio interface here.
+
+Example:
+
+```
+images/preview.png
 ```
 
-Gradio will launch locally and provide:
+---
 
-* Text Chat Interface
-* Voice Assistant Interface
+## 🔮 Future Improvements
+
+- Support for Mutual Funds
+- SIP Calculator
+- Stock Market Integration
+- Budget Planner
+- Expense Tracking
+- Multi-language Support
+- PDF Report Generation
+- Investment Recommendation Dashboard
 
 ---
 
-# 💬 Example Questions
-
-* What is the GST rate on laptops?
-* What is the current gold price?
-* How much GST do I pay on a gold chain?
-* Explain tax-saving investment options.
-* What are the benefits of mutual funds?
-
----
-
-# 🧠 How It Works
-
-1. Official finance PDFs are loaded using LangChain.
-2. Documents are split into smaller chunks.
-3. HuggingFace generates embeddings.
-4. ChromaDB stores the vector embeddings.
-5. User questions retrieve relevant document chunks.
-6. Gemini generates responses using retrieved context.
-7. Live market prices are fetched through the Gold API.
-8. Voice queries are transcribed using AssemblyAI.
-9. Responses are converted to speech using Murf AI.
-
----
-
-# 📦 Main Dependencies
-
-* langchain
-* langchain-community
-* langchain-huggingface
-* langchain-chroma
-* sentence-transformers
-* chromadb
-* gradio
-* requests
-* python-dotenv
-* assemblyai
-
----
-
-# 🌟 Future Improvements
-
-* Support for Mutual Fund NAV lookup
-* Stock Market Integration
-* SIP Calculator
-* EMI Calculator
-* Income Tax Calculator
-* Personal Budget Planner
-* Financial Portfolio Analysis
-* Multi-language Support
-* User Authentication
-* Chat History
-
----
-
-# 📜 License
-
-This project is intended for educational and learning purposes.
-
----
-
-# 👩‍💻 Author
+## 👩‍💻 Author
 
 **Amisha Patel**
 
-B.Tech Computer Science Engineering (Data Science)
+GitHub: https://github.com/AmishaOnMain
 
-Passionate about AI, Full Stack Development, and Building Real-World Intelligent Applications.
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
